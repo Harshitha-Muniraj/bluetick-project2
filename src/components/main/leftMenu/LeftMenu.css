@@ -1,0 +1,32 @@
+.left-menu{
+    flex: 0.2;
+    height: 100vh;
+}
+.lm-top{
+    background-color: #3f8dd7;
+    color: white;
+    text-align: center;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    background-color: blue;
+}
+.lm-btm{
+    /* background-color: blue; */
+    background-color: #080874;
+    height: -webkit-fill-available;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 10px;
+}
+.lm-btm div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#icon{
+    padding-top: 5px;
+    margin-left: 10px;
+}
