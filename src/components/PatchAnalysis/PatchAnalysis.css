@@ -1,0 +1,108 @@
+.patch{
+    background-color: #e4eff9;
+    height: 85vh;
+    padding: 12px;
+}
+.patch h2{
+    text-align: center;
+    padding: 1rem;
+    background-color: blue;
+    color: white;
+}
+.patch-container{
+   
+    background-color: white;
+    /* height: 68vh; */
+    border-top: 2px solid blue;
+    border-bottom: 2px solid green;
+    /* padding: 1rem; */
+}
+.patch-top{
+    background-color: #d2e2ef;
+    padding: 10px;
+    border-bottom: 1px dashed grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pt-container{
+    background-color: white;
+    width: 26%;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    gap: 30px;
+}
+.execution-top{
+    margin: 10px;
+    border: 1px solid #c6c1c1;
+    padding: 10px;
+}
+.execution{
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed grey;
+}
+.line-delay{
+    background-color: #e5e9ef;
+    border: 1px dashed blue;
+    margin: 20px 0;
+    padding: 17px;
+    width: 40%;
+    line-height: 1.9;
+    padding-right: 25px;
+    height: 20vh;
+}
+.green{
+    color: green;
+}
+.red{
+    color: red;
+}
+.s4{
+    font-size: 1.1rem;
+}
+.output{
+    border-top: 1px solid;
+    padding-top: 10px;
+}
+.exe-btm{
+    display: flex;
+    margin: 10px;
+    /* padding: 10px;
+    border: 1px solid #c9c0c0; */
+    width: 47%;
+    gap: 40px;
+}
+.exe-btm table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9rem;
+    border: 1px solid grey;
+}
+.exe-btm table td{
+    
+    height: 50px;
+    border: 1px solid grey;
+}
+.error{
+    border: 2px solid red;
+    padding: 10px;
+}
+.anime{ 
+    overflow: hidden;
+}
+
+
+@keyframes floatText{
+  from {
+    bottom: 50%;
+  }
+
+  to {
+    /* left: auto; */
+    bottom: 40%;
+  }
+}

@@ -11,8 +11,8 @@
     background-color: blue;
 }
 .lm-btm{
-    /* background-color: blue; */
-    background-color: #080874;
+    background-color: cornflowerblue;
+    /* background-color: #080874; */
     height: -webkit-fill-available;
     color: white;
     text-align: center;
@@ -23,10 +23,29 @@
 }
 .lm-btm div{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
+    padding-left: 2rem;
+    border-bottom: 1px solid #070bde52;
+    padding-bottom: 15px;
+}
+.subsection{
+    margin-top: -14px;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    padding-left: 5rem;
+    /* background: #006dff38; */
+    padding: 10px;
+    padding-left: 3.2rem !important;
 }
 #icon{
     padding-top: 5px;
     margin-left: 10px;
+}
+.left-menu a{
+    color: white;
+}
+.left-menu .active{
+    color: #3e3e45;
 }

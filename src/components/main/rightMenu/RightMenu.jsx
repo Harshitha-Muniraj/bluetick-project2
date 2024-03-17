@@ -1,6 +1,11 @@
-import React, { useState } from 'react'
-import './RightMenu.css';
+import React, { useState,useEffect } from 'react'
+// import './RightMenu.css';
+
 import Modal from "react-modal";
+import Central from '../../Central Manager/Central';
+import PatchAnalysis from '../../PatchAnalysis/PatchAnalysis';
+import { BrowserRouter, Router,Route, Routes } from 'react-router-dom';
+import Excel from '../../ExcelSheet/Excel';
 Modal.setAppElement("#root");
 const customStyles = {
   content: {
@@ -15,99 +20,24 @@ const customStyles = {
   },
 };
 const RightMenu = () => {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-    const data=[
-        {
-        id: 1,
-        cve:'CVE-2024-26260',
-        description:"The functionality for synchronization in HGiga OAKlouds' certain moudules has an OS ",
-        date:'0240215',
-        reference:"MISC:https://www.twcert.org.tw/tw/cp-132-7673-688b7-1.html",
-        severity:"Critical Base score- 9.8",
-        cwe:"Improper Neutralization of Special Elements used in an OS Command"
-    }
-,{
-    id: 2,
-    cve:'CVE-2024-26260',
-    description:"The functionality for synchronization in HGiga OAKlouds' certain moudules has an OS ",
-    date:'0240215',
-    reference:"MISC:https://www.twcert.org.tw/tw/cp-132-7673-688b7-1.html",
-    severity:"Critical Base score- 9.8",
-    cwe:"Improper Neutralization of Special Elements used in an OS Command"
-}
-,{
-    id: 3,
-    cve:'CVE-2024-26260',
-    description:"The functionality for synchronization in HGiga OAKlouds' certain moudules has an OS ",
-    date:'0240215',
-    reference:"MISC:https://www.twcert.org.tw/tw/cp-132-7673-688b7-1.html",
-    severity:"Critical Base score- 9.8",
-    cwe:"Improper Neutralization of Special Elements used in an OS Command"
-}
-,{
-    id: 4,
-    cve:'CVE-2024-26260',
-    description:"The functionality for synchronization in HGiga OAKlouds' certain moudules has an OS ",
-    date:'0240215',
-    reference:"MISC:https://www.twcert.org.tw/tw/cp-132-7673-688b7-1.html",
-    severity:"Critical Base score- 9.8",
-    cwe:"Improper Neutralization of Special Elements used in an OS Command"
-}
-,{
-    id: 5,
-    cve:'CVE-2024-26260',
-    description:"The functionality for synchronization in HGiga OAKlouds' certain moudules has an OS ",
-    date:'0240215',
-    reference:"MISC:https://www.twcert.org.tw/tw/cp-132-7673-688b7-1.html",
-    severity:"Critical Base score- 9.8",
-    cwe:"Improper Neutralization of Special Elements used in an OS Command"
-}
-,{
-    id: 6,
-    cve:'CVE-2024-26260',
-    description:"The functionality for synchronization in HGiga OAKlouds' certain moudules has an OS ",
-    date:'0240215',
-    reference:"MISC:https://www.twcert.org.tw/tw/cp-132-7673-688b7-1.html",
-    severity:"Critical Base score- 9.8",
-    cwe:"Improper Neutralization of Special Elements used in an OS Command"
-}
-,{
-    id:7 ,
-    cve:'CVE-2024-26260',
-    description:"The functionality for synchronization in HGiga OAKlouds' certain moudules has an OS ",
-    date:'0240215',
-    reference:"MISC:https://www.twcert.org.tw/tw/cp-132-7673-688b7-1.html",
-    severity:"Critical Base score- 9.8",
-    cwe:"Improper Neutralization of Special Elements used in an OS Command"
-}
-,{
-    id:8 ,
-    cve:'CVE-2024-26260',
-    description:"The functionality for synchronization in HGiga OAKlouds' certain moudules has an OS ",
-    date:'0240215',
-    reference:"MISC:https://www.twcert.org.tw/tw/cp-132-7673-688b7-1.html",
-    severity:"Critical Base score- 9.8",
-    cwe:"Improper Neutralization of Special Elements used in an OS Command"
-}
-,{
-    id:9 ,
-    cve:'CVE-2024-26260',
-    description:"The functionality for synchronization in HGiga OAKlouds' certain moudules has an OS ",
-    date:'0240215',
-    reference:"MISC:https://www.twcert.org.tw/tw/cp-132-7673-688b7-1.html",
-    severity:"Critical Base score- 9.8",
-    cwe:"Improper Neutralization of Special Elements used in an OS Command"
-}
-,{
-    id: 10,
-    cve:'CVE-2024-26260',
-    description:"The functionality for synchronization in HGiga OAKlouds' certain moudules has an OS ",
-    date:'0240215',
-    reference:"MISC:https://www.twcert.org.tw/tw/cp-132-7673-688b7-1.html",
-    severity:"Critical Base score- 9.8",
-    cwe:"Improper Neutralization of Special Elements used in an OS Command"
-}
-,]
+//   const [data,setData]=useState([])
+//     const [modalIsOpen, setModalIsOpen] = useState(false);
+
+// useEffect(()=>{
+//  const fetchData=async()=>{
+//     const response= await fetch(Data);
+//     const reader=response.body.getReader();
+//     const result=await reader.read();
+//     const decoder=new TextDecoder("utf-8");
+//     const csvData=decoder.decode(result.value);
+//     const parsedData=Papa.parse(csvData,{
+//       header:true,
+//       skipEmptyLines:true
+//     }).data;
+//     setData(parsedData)
+//  }
+//  fetchData()
+// },[])
   return (
     <div className='right-menu'>
        <div className='right-top'>
@@ -119,7 +49,14 @@ const RightMenu = () => {
             
         </div>
        </div>
-       <div className='table-box'>
+       {/* <BrowserRouter>
+        <Routes>
+          <Route path='/' exact element={<Excel/>}/>
+           <Route path='/central' element={<Central/>}/>
+           <Route path='/patch' element={<PatchAnalysis/>}/>
+        </Routes>
+       </BrowserRouter> */}
+       {/* <div className='table-box'>
         <div className='btn-section'>
             <button onClick={()=>setModalIsOpen(true)} className='cursor'>Add New Patch</button>
             <button className='cursor' >Export To Excel</button>
@@ -128,23 +65,24 @@ const RightMenu = () => {
         <table>
                 <tr>
                     <th>Sl.No</th>
-                    <th>CVE</th>
+                    <th>CVE ID</th>
                     <th>Description</th>
                     <th>Date</th>
                     <th>Reference</th>
                     <th>Severity</th>
                     <th>CWE</th>
                 </tr>
-                {data.map((item) => {
+                {data.map((item,index) => {
+                  console.log(item)
                     return (
-                        <tr key={item.id}>
-                        <td>{item.id}</td>
-                            <td>{item.cve}</td>
-                            <td>{item.description}</td>
-                            <td>{item.date}</td>
-                            <td><a href={item.reference}>Link</a></td>
-                            <td>{item.severity}</td>
-                            <td>{item.cwe}</td>
+                        <tr key={index}>
+                        <td>{index}</td>
+                            <td>{item.CVE}</td>
+                            <td  ><p className='desc'>{item.Description}</p></td>
+                            <td>{item.Date}</td>
+                            <td><a href={item.References}>Link</a></td>
+                            <td>{item.Severity}</td>
+                            <td ><p className='desc'>{item.CWE}</p></td>
                         </tr>
                     )
                 })}
@@ -160,19 +98,19 @@ const RightMenu = () => {
         <div className='cnt-form'>
           <div className='inp-box'>
             <label htmlFor='name' className=' g-color bold font-size-form' >CVE</label>
-            <input type='text'name="name" value="" id='name'  className='inp-form'  />
+            <input type='text'name="name"  id='name'  className='inp-form'  />
           </div>
           <div className='inp-box'>
             <label htmlFor='number' className=' g-color bold font-size-form'>DATE</label>
-            <input type='text' name='phone' value="" id='number' className='inp-form'  />
+            <input type='text' name='phone'  id='number' className='inp-form'  />
           </div>
           <div className='inp-box'>
             <label htmlFor='email' className=' g-color bold font-size-form'>REFERENCE</label>
-            <input type="email" name='email' value="" id='email' className='inp-form' />
+            <input type="email" name='email'  id='email' className='inp-form' />
           </div>
           <div className='inp-box '>
             <label htmlFor='service' className=' g-color bold font-size-form'>SEVERITY SERVICE</label>
-            <input type='text' name='service' value="" id='service' className='inp-form' />
+            <input type='text' name='service'  id='service' className='inp-form' />
           </div>
           
         </div>
@@ -185,11 +123,13 @@ const RightMenu = () => {
            <textarea name='message' id='form-msg' cols="30" rows="6" />
         </div>
           
-          <button type='submit' className='cursor bold hov-btn cursor'>GET FREE QUOTE</button>
+          <button type='submit' className='cursor bold hov-btn cursor'>Add Patch</button>
         </form>
         </div>
       </Modal>
-       </div>
+       </div> */}
+       {/* <Central/> */}
+      
     </div>
   )
 }
