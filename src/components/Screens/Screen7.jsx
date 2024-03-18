@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import RightNav from '../RightTitle/RightNav'
 import RightTitle from '../RightTitle/RightTitle'
 import RightExecution from '../RightTitle/RightExecution'
+import Footer from '../Footer/Footer'
 
 const Screen7 = () => {
     var text = "Dynamic Impact Analysis ,1. Scan for System calls,2.Inter Process Communication scan,3"
@@ -60,6 +61,7 @@ const Screen7 = () => {
           </div>
           
     </section>
+  
     </div>
   )
 }

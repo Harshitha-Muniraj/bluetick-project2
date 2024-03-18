@@ -1,5 +1,6 @@
 import React from 'react'
 import './Central.css'
+import Footer from '../Footer/Footer'
 const Central = () => {
   return (
     <div className='right-menu'>
@@ -64,6 +65,7 @@ const Central = () => {
         </form>
         
     </section>
+    
     </div>
   )
 }

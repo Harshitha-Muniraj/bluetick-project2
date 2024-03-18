@@ -1,6 +1,7 @@
 .left-menu{
     flex: 0.2;
-    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 .lm-top{
     background-color: #3f8dd7;
@@ -47,5 +48,5 @@
     color: white;
 }
 .left-menu .active{
-    color: #3e3e45;
+    color: #05055d;
 }

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import RightNav from '../RightTitle/RightNav'
 import RightTitle from '../RightTitle/RightTitle'
 import RightExecution from '../RightTitle/RightExecution'
+import Footer from '../Footer/Footer'
 
 const Screen6= () => {
   var text = "Integrity check - Kernel Partition ,1. **Scanning for Unauthorized modifications,2.**Scanning for Vulnerabilities ,3"
@@ -61,6 +62,7 @@ const Screen6= () => {
           </div>
           
     </section>
+    
     </div>
   )
 }

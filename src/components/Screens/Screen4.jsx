@@ -3,6 +3,7 @@ import React from 'react'
 import RightNav from '../RightTitle/RightNav'
 import RightTitle from '../RightTitle/RightTitle'
 import RightExecution from '../RightTitle/RightExecution'
+import Footer from '../Footer/Footer'
 
 const Screen4 = () => {
     const texts=""
@@ -45,6 +46,7 @@ const Screen4 = () => {
           </div>
           
     </section>
+   
     </div>
   )
 }

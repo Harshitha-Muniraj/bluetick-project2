@@ -4,6 +4,7 @@ import './RightMenu.css'
 import Data from './drdodataa.csv'
 import Papa from 'papaparse'
 import Modal from "react-modal";
+import Footer from '../Footer/Footer';
 Modal.setAppElement("#root");
 const customStyles = {
   content: {
@@ -127,6 +128,7 @@ useEffect(()=>{
         </div>
       </Modal>
        </div> 
+       
        </div>
   )
 }

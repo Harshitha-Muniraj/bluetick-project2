@@ -1,6 +1,7 @@
 import React from 'react'
 import RightNav from '../RightTitle/RightNav'
 import RightTitle from '../RightTitle/RightTitle'
+import Footer from '../Footer/Footer'
 
 const Summary = () => {
   return (
@@ -50,6 +51,7 @@ const Summary = () => {
         </div>
         </div>
         </section>
+        
         </div>
   )
 }

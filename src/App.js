@@ -12,6 +12,7 @@ import Screen5 from './components/Screens/Screen5';
 import Screen6 from './components/Screens/Screen6';
 import Screen7 from './components/Screens/Screen7';
 import Summary from './components/Screens/Summary';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
     
     
     </div>
+    <Footer/>
     </BrowserRouter>
     </>
   );

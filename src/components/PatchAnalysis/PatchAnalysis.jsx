@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './PatchAnalysis.css'
+import Footer from '../Footer/Footer';
 const PatchAnalysis = () => {
   var text = "enerating Random Text ,1. A computer program can easily produce gibberish ,2. especially if it has been provided with garbage beforehand ,3"
   const delayText=text.split(".");

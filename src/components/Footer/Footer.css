@@ -1,0 +1,33 @@
+footer{
+    background-color:#053681;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 2px solid white;
+    
+    /* border-top: 3px solid rgba(0, 132, 255, 0.623); */
+}
+.footer-imgs figure{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.footer-imgs div{
+    height: 8vh;
+    background-color: #a59898;
+    font-size: 0.2rem;
+}
+.footer-imgs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+}
+.footer-imgs figure img{
+   
+    height: 70px;
+}

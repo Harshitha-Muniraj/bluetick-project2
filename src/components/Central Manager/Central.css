@@ -1,7 +1,7 @@
 .central{
     background-color: aliceblue;
     padding: 10px;
-    height: 80vh;
+    /* height: 80vh; */
 }
 .central .patch-top{
     border-top: 2px solid blue;
