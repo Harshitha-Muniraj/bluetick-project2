@@ -24,19 +24,25 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding-top: 10px;
+    
 }
-.lm-btm div{
+.lm-btm .lm-btn{
     display: flex;
     /* align-items: center;
     justify-content: center; */
+    padding: 20px 0;
     padding-left: 2rem;
     border-bottom: 1px solid #070bde52;
     padding-bottom: 15px;
 }
+.lm-btn .active{
+    background-color:green; 
+}
+.active-bg{
+    background-color:#c0c2c087;
+color:white}
 .subsection{
-    margin-top: -14px;
+    /* margin-top: -14px; */
     flex-direction: column;
     gap: 10px;
     text-align: left;
@@ -53,5 +59,6 @@
     color: #080874;
 }
 .left-menu .active{
-    color: green;
+    background-color: green;
 }
+

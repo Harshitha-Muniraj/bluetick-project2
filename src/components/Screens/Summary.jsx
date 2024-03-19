@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer'
 const Summary = () => {
   return (
     <div className='right-menu'>
-       <RightNav/>
+       <RightNav title={"Result"}/>
     <section className='patch'>
         <div className='patch-container'>
           <RightTitle/>

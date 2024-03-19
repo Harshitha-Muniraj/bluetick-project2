@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './PatchAnalysis.css'
 import Footer from '../Footer/Footer';
 const PatchAnalysis = () => {
  
   const [log, setLog] = useState("");
   const [cli,setCli]=useState("");
+
   const [executionFinished, setExecutionFinished] = useState(false);
+  const logRef = useRef(null);
+  const cliRef = useRef(null);
+
   var logContent = `**log Building Kernel Binary (image)
   **log Download Android kernel source code
   **cli $ mkdir android-kernel && cd android-kernel
@@ -69,39 +73,91 @@ const PatchAnalysis = () => {
 //     splitAndPrintLog(logContent);
 // }, []);
 
+// useEffect(() => {
+//   function splitAndPrintLog(logContent) {
+//       const lines = logContent.split('\n');
+//       let logParagraph = '';
+//       let cliParagraph = '';
+
+//       lines.forEach((line, index) => {
+//           if (line.includes('**cli')) {
+//               setTimeout(() => {
+//                   setCli(prevCli => prevCli + line.replace('**cli', '') + '<br>');
+//               }, index * 2000);
+//           } else if (line.includes('**log')) {
+//               setTimeout(() => {
+//                   setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
+//               }, index * 2000);
+//           } else if (line.includes('**wait')) {
+//               setTimeout(() => {
+//                   setLog(prevLog => prevLog + '\n');
+//                   setCli(prevCli => prevCli + '\n');
+//               }, index * 2000 + 3000);
+//           }
+//       });
+
+//       // Set execution finished after the last line is processed
+//       setTimeout(() => {
+//           setExecutionFinished(true);
+//       }, lines.length * 2000 + 3000);
+//   }
+
+//   splitAndPrintLog(logContent);
+// }, []);
+
+// useEffect(() => {
+//   function splitAndPrintLog(logContent) {
+//     const lines = logContent.split('\n');
+
+//     lines.forEach((line, index) => {
+//       setTimeout(() => {
+//         if (line.includes('**cli')) {
+//           setCli(prevCli => prevCli + line.replace('**cli', '') + '<br>');
+//           cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+//         } else if (line.includes('**log')) {
+//           setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
+//           logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+//         } else if (line.includes('**wait')) {
+//           setLog(prevLog => prevLog + '\n');
+//           setCli(prevCli => prevCli + '\n');
+//         }
+//       }, index * 2000);
+//     });
+
+//     setTimeout(() => {
+//       setExecutionFinished(true);
+//     }, lines.length * 2000 + 3000);
+//   }
+
+//   splitAndPrintLog(logContent);
+// }, []);
 useEffect(() => {
   function splitAndPrintLog(logContent) {
-      const lines = logContent.split('\n');
-      let logParagraph = '';
-      let cliParagraph = '';
+    const lines = logContent.split('\n');
 
-      lines.forEach((line, index) => {
-          if (line.includes('**cli')) {
-              setTimeout(() => {
-                  setCli(prevCli => prevCli + line.replace('**cli', '') + '\n');
-              }, index * 2000);
-          } else if (line.includes('**log')) {
-              setTimeout(() => {
-                  setLog(prevLog => prevLog + line.replace('**log', '') + '\n');
-              }, index * 2000);
-          } else if (line.includes('**wait')) {
-              setTimeout(() => {
-                  setLog(prevLog => prevLog + '\n');
-                  setCli(prevCli => prevCli + '\n');
-              }, index * 2000 + 3000);
-          }
-      });
-
-      // Set execution finished after the last line is processed
+    lines.forEach((line, index) => {
       setTimeout(() => {
-          setExecutionFinished(true);
-      }, lines.length * 2000 + 3000);
+        if (line.includes('**cli')) {
+          setCli(prevCli => prevCli + line.replace('**cli', '') + '<br>');
+          cliRef.current && cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        } else if (line.includes('**log')) {
+          setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
+          logRef.current && logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        } else if (line.includes('**wait')) {
+          setLog(prevLog => prevLog + '\n');
+          setCli(prevCli => prevCli + '\n');
+        }
+      }, index * 2000);
+    });
+
+    setTimeout(() => {
+      setExecutionFinished(true);
+    }, lines.length * 2000 + 3000);
   }
 
   splitAndPrintLog(logContent);
 }, []);
-
-  return (
+return (
     <div className='right-menu'>
        <div className='right-top'>
        <div className='icon-menu'>Android Platform Integrity</div>
@@ -130,13 +186,13 @@ useEffect(() => {
             <p>Command Line Interference</p>
             </div>
             <div className='cmd-box'>
-            <div className='line-delay' >
-          
-          {log}
-              </div>
-              <div className='line-delay-cli'>
+            {/* <div className='line-delay' > */}
+            <div className='line-delay' dangerouslySetInnerHTML={{ __html: log }} ref={logRef}></div>
+          {/* {log} */}
+              {/* </div> */}
+              <div className='line-delay-cli' dangerouslySetInnerHTML={{ __html: cli }} ref={cliRef}>
 
-              {cli}
+              {/* {cli} */}
               </div>
             </div>
             

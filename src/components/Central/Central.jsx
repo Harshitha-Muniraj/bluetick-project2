@@ -6,7 +6,7 @@ const Central = () => {
   return (
     <div className='right-menu'>
        <div className='right-top'>
-        <div className='icon-menu'>Central Configeration</div>
+        <div className='icon-menu'> Configuration Manager</div>
         <div className='person-icon'>
             <div></div>
                 <div><ion-icon name="person-outline"></ion-icon></div>
@@ -18,7 +18,7 @@ const Central = () => {
         {/* <h2>Configuration Manager</h2> */}
         <div className='patch-top'>
           <div className='pt-container' id='pt-container'>
-            <p>Add New Configeration</p>
+            <p>Add New Configuration</p>
             {/* <p>Sample Test Patch 1</p> */}
           </div>
           </div>
