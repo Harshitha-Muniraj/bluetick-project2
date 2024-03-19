@@ -4,7 +4,7 @@
     /* height: 80vh; */
 }
 .central .patch-top{
-    border-top: 2px solid blue;
+    border-top: 2px solid #080874c2;
 }
 .central h2{
     text-align: center;
@@ -16,6 +16,28 @@
     align-items: center;
     width: 70%;
    
+}
+.icon-menu{
+    font-size: 1.4rem;
+    font-weight: 600;
+   
+    padding-left: 30rem;
+}
+.central .patch-top{
+    display: flex;
+    justify-content: flex-end;
+}
+.outline::file-selector-button {
+    padding: 10px; /* Adjust the padding as needed */
+  }
+#pt-container{
+    color: white;
+    background: #080874c2 !important;
+    border: navajowhite;
+    padding: 8px;
+    border-radius: 4px;
+    display: block;
+    width: fit-content;
 }
 .central form{
     /* gap: 30px; */

@@ -1,19 +1,19 @@
 import React from 'react'
-import Excel from '../components/ExcelSheet/Excel'
+import Summary from '../components/Screens/Summary'
 import TopHead from '../components/TopHead/TopHead'
 import LeftMenu from '../components/main/leftMenu/LeftMenu'
 
-const Home = () => {
+const Conclusion = () => {
   return (
     <>
     <TopHead/>
     <div className='flex'>
     <LeftMenu/>
-    <Excel/>
+    <Summary/>
     </div>
     
     </>
   )
 }
 
-export default Home
+export default Conclusion

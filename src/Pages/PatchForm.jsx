@@ -1,19 +1,19 @@
 import React from 'react'
-import Excel from '../components/ExcelSheet/Excel'
 import TopHead from '../components/TopHead/TopHead'
 import LeftMenu from '../components/main/leftMenu/LeftMenu'
+import Central from '../components/Central/Central'
 
-const Home = () => {
+const PatchForm = () => {
   return (
     <>
-    <TopHead/>
+    <TopHead title={"Central Configeration"}/>
     <div className='flex'>
     <LeftMenu/>
-    <Excel/>
+    <Central/>
     </div>
     
     </>
   )
 }
 
-export default Home
+export default PatchForm

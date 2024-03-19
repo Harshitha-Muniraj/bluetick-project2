@@ -1,43 +1,42 @@
 
 import './App.css';
-import TopHead from './components/TopHead/TopHead';
-import RightMenu from './components/main/rightMenu/RightMenu';
-import LeftMenu from './components/main/leftMenu/LeftMenu';
+
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import Excel from './components/ExcelSheet/Excel';
-import Central from './components/Central Manager/Central';
-import PatchAnalysis from './components/PatchAnalysis/PatchAnalysis';
-import Screen4 from './components/Screens/Screen4';
-import Screen5 from './components/Screens/Screen5';
-import Screen6 from './components/Screens/Screen6';
-import Screen7 from './components/Screens/Screen7';
-import Summary from './components/Screens/Summary';
+import PatchForm from './Pages/PatchForm';
+
+
+import Conclusion from './Pages/Conclusion';
 import Footer from './components/Footer/Footer';
+import Home from './Pages/Home';
+import PSAstatic from './Pages/PSAstatic';
+import PSAdynamic from './Pages/PSAdynamic';
+import IMAstatic from './Pages/IMAstatic';
+import IMAdynamic from './Pages/IMAdynamic';
+import Android from './Pages/Android';
+
 
 function App() {
   return (
     <>
     <BrowserRouter>
-    <TopHead/>
-    <div className='flex'>
-    <LeftMenu/>
     
       <Routes>
-        <Route path='/' exact element={<Excel/>}/>
-        <Route path='/central' exact element={<Central/>}/>
-        <Route path='/patch' exact element={<PatchAnalysis/>}/>
-        <Route path='/screen4' element={<Screen4/>}/>
-        <Route path='/screen5' element={<Screen5/>}/>
-        <Route path='/screen6' element={<Screen6/>}/>
-        <Route path='/screen7' element={<Screen7/>}/>
-        <Route path='/summary' element={<Summary/>}/>
+        <Route path='/' exact element={<Home/>}/>
+        <Route path='/central' exact element={<PatchForm/>}/>
+        <Route path='/patch' exact element={<Android/>}/>
+        <Route path='/screen4' exact element={<PSAstatic/>}/>
+        <Route path='/screen5' exact element={<PSAdynamic/>}/>
+        <Route path='/screen6' element={<IMAstatic/>}/>
+        <Route path='/screen7' exact element={<IMAdynamic/>}/>
+        <Route path='/summary' exact element={<Conclusion/>}/>
       </Routes>
     
     
     
-    </div>
     <Footer/>
     </BrowserRouter>
+    
     </>
   );
 }

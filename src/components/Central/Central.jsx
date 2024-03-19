@@ -1,23 +1,24 @@
 import React from 'react'
 import './Central.css'
 import Footer from '../Footer/Footer'
+import { Link } from 'react-router-dom'
 const Central = () => {
   return (
     <div className='right-menu'>
        <div className='right-top'>
-        <div className='icon-menu'><ion-icon name="menu"></ion-icon></div>
+        <div className='icon-menu'>Central Configeration</div>
         <div className='person-icon'>
-            
+            <div></div>
                 <div><ion-icon name="person-outline"></ion-icon></div>
-                <div>Harshitha</div>
+                <div>Admin</div>
             
         </div>
        </div>
     <section className='central'>
         {/* <h2>Configuration Manager</h2> */}
         <div className='patch-top'>
-          <div className='pt-container'>
-            <p>Configuration Manager</p>
+          <div className='pt-container' id='pt-container'>
+            <p>Add New Configeration</p>
             {/* <p>Sample Test Patch 1</p> */}
           </div>
           </div>
@@ -36,6 +37,7 @@ const Central = () => {
   <option value="saab">Android 10</option>
   <option value="mercedes">Android 11</option>
   <option value="audi">Android 12</option>
+  <option value="audi">Android 13</option>
 </select>
             </div>
             <div className='cent-div'>
@@ -60,7 +62,7 @@ const Central = () => {
             </div>
             </div>
             <div className='cent-btn-container'>
-            <button>Start Patch Analysis</button>
+            <button ><Link to='/patch'>Start Patch Analysis</Link></button>
         </div>
         </form>
         

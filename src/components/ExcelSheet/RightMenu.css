@@ -4,10 +4,11 @@
 .right-top{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
     padding: 0.85rem 1rem;
-    color: white;
-    background-color: cornflowerblue;
+    color: black;
+    background-color: #e3e3e3;
+    background-color: whitesmoke;
 }
 .person-icon{
     display: flex;
@@ -15,15 +16,32 @@
     align-items: center;
 
 }
+.modal-overlay form textarea{
+    font-size: 1rem;
+    padding: 6px;
+}
+.modal-overlay h3{
+    color: gray;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.modal-overlay form label{
+    font-family: sans-serif;
+    color: black;
+}
+.modal-overlay form input{
+    padding: 4px;
+    font-size: 1rem;
+}
 .table-box{
     margin: 12px;
-    border-top: 2px solid blue;
+    border-top: 2px solid #080874c2;
     box-shadow: 0 2px 3px grey;
     
 }
 .btn-section button{
     color: white;
-    background: #5496cd;
+    background: #080874c2;
     border: navajowhite;
     padding: 8px;
     border-radius: 4px;
@@ -53,7 +71,7 @@
   }
   
   .field tr:nth-child(even) {
-    background-color: #c7dae07d;
+    background-color: #d9d9f7c2;
   }
   form{
     display: flex;

@@ -1,19 +1,19 @@
-import React from 'react'
-import Excel from '../components/ExcelSheet/Excel'
+import React from 'react';
 import TopHead from '../components/TopHead/TopHead'
 import LeftMenu from '../components/main/leftMenu/LeftMenu'
+import PatchAnalysis from '../components/PatchAnalysis/PatchAnalysis'
 
-const Home = () => {
+const Android = () => {
   return (
     <>
     <TopHead/>
     <div className='flex'>
     <LeftMenu/>
-    <Excel/>
+    <PatchAnalysis/>
     </div>
     
     </>
   )
 }
 
-export default Home
+export default Android

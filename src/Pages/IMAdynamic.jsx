@@ -1,19 +1,19 @@
 import React from 'react'
-import Excel from '../components/ExcelSheet/Excel'
+import Screen7 from '../components/Screens/Screen7'
 import TopHead from '../components/TopHead/TopHead'
 import LeftMenu from '../components/main/leftMenu/LeftMenu'
 
-const Home = () => {
+const IMAdynamic = () => {
   return (
     <>
     <TopHead/>
     <div className='flex'>
     <LeftMenu/>
-    <Excel/>
+    <Screen7/>
     </div>
     
     </>
   )
 }
 
-export default Home
+export default IMAdynamic

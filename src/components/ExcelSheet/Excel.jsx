@@ -17,7 +17,7 @@ const customStyles = {
     width:"52%",
     borderRadius:"5px",
     boxShadow:'0 2px 9px grey',
-    
+    fontFamily:"sans-serif"
   },
 };
 
@@ -43,11 +43,11 @@ useEffect(()=>{
   return (
     <div className='right-menu'>
        <div className='right-top'>
-        <div className='icon-menu'><ion-icon name="menu"></ion-icon></div>
+        <div className='icon-menu'></div>
         <div className='person-icon'>
             
                 <div><ion-icon name="person-outline"></ion-icon></div>
-                <div>Harshitha</div>
+                <div>Admin</div>
             
         </div>
        </div>
@@ -91,7 +91,7 @@ useEffect(()=>{
         <div className='form-cancel-btn'>
         <button onClick={()=>setModalIsOpen(false)} className="modal-close cursor"><ion-icon name="close"></ion-icon></button>
         </div>
-          
+          <h3>Create New Patch Record</h3>
           <form>
          <div className='form-top'>
          <div>

@@ -1,19 +1,20 @@
 import React from 'react'
-import Excel from '../components/ExcelSheet/Excel'
+import Screen5 from '../components/Screens/Screen5'
 import TopHead from '../components/TopHead/TopHead'
 import LeftMenu from '../components/main/leftMenu/LeftMenu'
 
-const Home = () => {
+const PSAdynamic = () => {
   return (
     <>
     <TopHead/>
     <div className='flex'>
     <LeftMenu/>
-    <Excel/>
+    <Screen5/>
     </div>
     
     </>
   )
 }
 
-export default Home
+export default PSAdynamic
+

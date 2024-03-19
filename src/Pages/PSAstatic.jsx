@@ -1,19 +1,19 @@
 import React from 'react'
-import Excel from '../components/ExcelSheet/Excel'
+import Screen4 from '../components/Screens/Screen4';
 import TopHead from '../components/TopHead/TopHead'
 import LeftMenu from '../components/main/leftMenu/LeftMenu'
 
-const Home = () => {
+const PSAstatic = () => {
   return (
     <>
     <TopHead/>
     <div className='flex'>
     <LeftMenu/>
-    <Excel/>
+    <Screen4/>
     </div>
     
     </>
   )
 }
 
-export default Home
+export default PSAstatic
