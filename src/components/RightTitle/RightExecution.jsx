@@ -37,7 +37,8 @@ const RightExecution = ({texts}) => {
     splitAndPrintLog(logContent);
   }, []);
   return (
-    <div   style={{    marginBottom: '20px'}} >
+    <div className='execution-top'>
+          <div   style={{    marginBottom: '20px'}} >
             <div className='execution'>
             <p>Execution Logs</p>
             <p></p>
@@ -56,6 +57,30 @@ const RightExecution = ({texts}) => {
             
             
 
+          </div>
+          <div className='output'>
+          {executionFinished && (<>
+            <div>
+              <p className='execution'>Output - Binary Partitions</p>
+            </div>
+            <div className='exe-btm'>
+               <table>
+               <tr>
+               <td><p  className='error' >Boot Partition</p></td>
+                <td><p  className='error' >Application Partition</p></td>
+               </tr>
+                <tr>
+                <td>Kernel Partition</td>
+                </tr>
+                <tr>
+                <td>HAL Partition</td>
+                </tr>
+                
+               </table>
+               
+            </div>
+            </> )}
+          </div>
           </div>
   )
 }

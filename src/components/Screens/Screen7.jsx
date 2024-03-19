@@ -27,13 +27,13 @@ const Screen7 = () => {
   }, []);
   return (
     <div className='right-menu'>
-       <RightNav/>
+       <RightNav title={'Integrated Impact Analysis-Dynamic Analysis'}/>
     <section className='patch'>
         <div className='patch-container'>
-          <RightTitle/>
+          <RightTitle />
         <div className='execution-top'>
         <RightExecution texts={texts}/>
-          <div className='output'>
+          {/* <div className='output'>
             <div>
               <p className='execution'>Output - Binary Partitions</p>
             </div>
@@ -56,7 +56,7 @@ const Screen7 = () => {
                
             </div>
           
-          </div>
+          </div> */}
           </div>
           </div>
           

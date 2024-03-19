@@ -17,13 +17,13 @@ const Screen4 = () => {
     **log scan complete`
   return (
     <div className='right-menu'>
-       <RightNav/>
+       <RightNav title={'Patch Security Analysis-Static Analysis'}/>
     <section className='patch'>
         <div className='patch-container'>
           <RightTitle/>
         <div className='execution-top'>
         <RightExecution texts={texts}/>
-          <div className='output'>
+          {/* <div className='output'>
             <div>
               <p className='execution'>Output - Binary Partitions</p>
             </div>
@@ -49,7 +49,7 @@ const Screen4 = () => {
                
             </div>
           
-          </div>
+          </div> */}
           </div>
           </div>
           
