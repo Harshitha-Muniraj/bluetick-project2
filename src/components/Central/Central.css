@@ -69,19 +69,22 @@
     height: 41px;
     font-size: 1rem;
     outline: none;
-    border: 2px solid #1d21df;
+    border: 2px solid #080874c2;
     width: 41%;
     border: 1px solid grey;
     flex: 1;
 }
 .central button{
     color: white;
-    background-color: blue;
+    background-color: #080874c2;
     padding: 4px;
     border: none;
     font-weight: 600;
     padding: 10px;
     border-radius: 3px;
+}
+.central a{
+    color:white
 }
 .cent-btn-container{
     

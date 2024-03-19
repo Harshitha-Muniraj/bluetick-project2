@@ -4,58 +4,102 @@ import Footer from '../Footer/Footer';
 const PatchAnalysis = () => {
  
   const [log, setLog] = useState("");
-  const [cli,setCli]=useState("")
-var logContent="**log Building Kernel Binary (image)**log Download Android kernel sourcecode**cli $ mkdir android-kernel && cd android-kernel**cli $ repo init -u https://android.googlesource.com/kernel/manifest**cli $ repo sync**log **cli $ tools/bazel build //common-modules/virtual-device:virtual_device_x86_64_dist**log Installing bazel**log Setting up path with bazel**cli $ source build/envsetup.sh**log **** Bulding Kernel image Image.lz4-dtb *****log Redirecting log to log file**log Loading**wait 2 **log build complete**log Building Android**cli $ source build/envsetup.sh**cli $ lunch aosp_cf_x86_64_phone-trunk_staging-userdebug**cli $ echo$TARGET_PRODUCT-$TARGET_BUILD_VARIANT**cli $ m**log ============================================**log PLATFORM_VERSION_CODENAME=VanillaIceCream**log PLATFORM_VERSION=VanillaIceCream**log PRODUCT_INCLUDE_TAGS=com.android.mainline**log TARGET_PRODUCT=aosp_arm**log ============================================"
-  useEffect(()=>{
-    
-    function splitAndPrintLog(logContent) {
-      // Split the log content into lines
+  const [cli,setCli]=useState("");
+  const [executionFinished, setExecutionFinished] = useState(false);
+  var logContent = `**log Building Kernel Binary (image)
+  **log Download Android kernel source code
+  **cli $ mkdir android-kernel && cd android-kernel
+  **cli $ repo init -u https://android.googlesource.com/kernel/manifest
+  **cli $ repo sync
+  **log 
+  **cli $ tools/bazel build //common-modules/virtual-device:virtual_device_x86_64_dist
+  **log Installing bazel
+  **log Setting up path with bazel
+  **cli $ source build/envsetup.sh
+  **log **** Bulding Kernel image Image.lz4-dtb ***
+  **log Redirecting log to log file
+  **log Loading
+  **wait 2 
+  **log build complete
+  **log Building Android
+  **cli $ source build/envsetup.sh
+  **cli $ lunch aosp_cf_x86_64_phone-trunk_staging-userdebug
+  **cli $ echo $TARGET_PRODUCT-$TARGET_BUILD_VARIANT
+  **cli $ m
+  **log ============================================
+  **log PLATFORM_VERSION_CODENAME=VanillaIceCream
+  **log PLATFORM_VERSION=VanillaIceCream
+  **log PRODUCT_INCLUDE_TAGS=com.android.mainline
+  **log TARGET_PRODUCT=aosp_arm
+  **log TARGET_BUILD_VARIANT=eng
+  **log TARGET_ARCH=arm
+  **log TARGET_ARCH_VARIANT=armv7-a-neon
+  **log TARGET_CPU_VARIANT=generic
+  **log HOST_OS=linux
+  **log HOST_OS_EXTRA=Linux-6.5.13-1rodete2-amd64-x86_64-Debian-GNU/Linux-rodete
+  **log HOST_CROSS_OS=windows
+  **log BUILD_ID=AOSP.MAIN
+  **log OUT_DIR=out
+  **log ============================================`;
+
+//   useEffect(() => {
+//     function splitAndPrintLog(logContent) {
+//         // Split the log content into lines
+//         const lines = logContent.split('\n');
+
+//         lines.forEach((line, index) => {
+//             setTimeout(() => {
+//                 // Check if line contains **cli
+//                 if (line.includes('**cli')) {
+//                     setCli(prevCli => prevCli + line.replace('**cli', '') + '\n');
+//                 }
+//                 // Check if line contains **log
+//                 else if (line.includes('**log')) {
+//                     setLog(prevLog => prevLog + line.replace('**log', '') + '\n');
+//                 }
+//                 // Check if line contains **wait
+//                 else if (line.includes('**wait')) {
+//                     setLog(prevLog => prevLog + '\n');
+//                     setCli(prevCli => prevCli + '\n');
+//                 }
+//             }, index * 2000); // Delay printing by 2 seconds for each line
+//         });
+//     }
+
+//     splitAndPrintLog(logContent);
+// }, []);
+
+useEffect(() => {
+  function splitAndPrintLog(logContent) {
       const lines = logContent.split('\n');
       let logParagraph = '';
       let cliParagraph = '';
 
       lines.forEach((line, index) => {
-          // Check if line starts with **log
-          if (line.startsWith('**log')) {
-              logParagraph += line.replace('**log ', '') + '\n';
-              setLog(logParagraph);
-          }
-          // Check if line starts with **cli
-          else if (line.startsWith('**cli')) {
-              cliParagraph += line.replace('**cli ', '') + '\n';
-              setCli(cliParagraph);
-          }
-          // Check if line starts with **wait
-          else if (line.startsWith('**wait')) {
-              // Wait for 3 seconds
+          if (line.includes('**cli')) {
               setTimeout(() => {
-                  console.log('Waiting for 3 seconds...');
-                  // Update state after waiting
-                  setLog(logParagraph);
-                  setCli(cliParagraph);
-              }, 3000);
+                  setCli(prevCli => prevCli + line.replace('**cli', '') + '\n');
+              }, index * 2000);
+          } else if (line.includes('**log')) {
+              setTimeout(() => {
+                  setLog(prevLog => prevLog + line.replace('**log', '') + '\n');
+              }, index * 2000);
+          } else if (line.includes('**wait')) {
+              setTimeout(() => {
+                  setLog(prevLog => prevLog + '\n');
+                  setCli(prevCli => prevCli + '\n');
+              }, index * 2000 + 3000);
           }
       });
+
+      // Set execution finished after the last line is processed
+      setTimeout(() => {
+          setExecutionFinished(true);
+      }, lines.length * 2000 + 3000);
   }
 
-  splitAndPrintLog(logContent)
-  },[])
-
-  // useEffect(() => {
-  // //   const timeoutIds = [];
-
-  // //   delayText.forEach((text, i) => {
-  // //     const timeoutId = setTimeout(() => {
-  // //       setTexts((prev) => [...prev, text]);
-  // //     }, 2000 * i);
-
-  // //     timeoutIds.push(timeoutId);
-  // //   });
-
-  // //   return () => {
-  // //     timeoutIds.forEach((id) => clearTimeout(id));
-  // //   };
-  // // }, []);
+  splitAndPrintLog(logContent);
+}, []);
 
   return (
     <div className='right-menu'>
@@ -90,7 +134,7 @@ var logContent="**log Building Kernel Binary (image)**log Download Android kerne
           
           {log}
               </div>
-              <div className='line-delay'>
+              <div className='line-delay-cli'>
 
               {cli}
               </div>
@@ -100,6 +144,7 @@ var logContent="**log Building Kernel Binary (image)**log Download Android kerne
 
           </div>
           <div className='output'>
+          {executionFinished && (<>
             <div>
               <p className='execution'>Output - Binary Partitions</p>
             </div>
@@ -119,7 +164,7 @@ var logContent="**log Building Kernel Binary (image)**log Download Android kerne
                </table>
                
             </div>
-          
+            </> )}
           </div>
           </div>
           </div>

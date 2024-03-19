@@ -18,7 +18,7 @@
     /* padding: 1rem; */
 }
 .patch-top{
-    background-color: #dedfe0bd;
+    background-color: white;
     padding: 10px;
     border-bottom: 1px dashed grey;
     display: flex;
@@ -26,17 +26,32 @@
     justify-content: space-between;
 }
 .pt-container{
-    background-color: white;
+    background-color: #dadae3;
     width: 26%;
     border-radius: 5px;
     padding: 10px;
     display: flex;
     gap: 30px;
 }
+.line-delay-cli {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    overflow: auto;
+    height: 30vh; 
+    white-space: pre-wrap; 
+    width: 40%;
+    flex: 1;
+    margin: 20px 0;
+}
 .cmd-box{
     display: flex;
     justify-content: space-around;
     gap: 40px;
+    flex-direction: row-reverse;
 }
 .execution-top{
     margin: 10px;
@@ -45,6 +60,7 @@
 }
 .execution{
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-around;
     font-size: 1.2rem;
     font-weight: 600;
@@ -57,10 +73,10 @@
     /* border: 1px dashed blue; */
     margin: 20px 0;
     padding: 17px;
-    /* width: 40%; */
+    width: 40%;
     line-height: 1.9;
     padding-right: 25px;
-    height: 20vh;
+    height: 30vh;
     overflow: scroll;
     flex: 1;
 }
@@ -76,6 +92,7 @@
 .output{
     border-top: 1px solid;
     padding-top: 10px;
+    height: 40vh;
 }
 .exe-btm{
     display: flex;

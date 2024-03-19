@@ -6,7 +6,15 @@ import RightExecution from '../RightTitle/RightExecution'
 import Footer from '../Footer/Footer'
 
 const Screen4 = () => {
-    const texts=""
+    const texts=`**logs Starting Static Analysis
+    **logs Scanning for OWASP Vulnarablities
+    **cli $ git clone https://github.com/Cyber-Buddy/APKHunt.git
+    **cli cd APKHunt
+    **cli go run apkhunt.go
+    **cli APKHunt.go -m /
+    **logs Starting Scan
+    **wait 2
+    **log scan complete`
   return (
     <div className='right-menu'>
        <RightNav/>
