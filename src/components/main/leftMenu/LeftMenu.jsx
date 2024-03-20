@@ -172,10 +172,21 @@ const LeftMenu = () => {
             </p>
           </div>)}
         <div
-        style={{display:' block',
-    textAlign: 'left'}}
-          className={` ${activeItem === "integrated" ? "active-bg" : ""} lm-btn`}
-          onClick={() => {setDisplay2(!display2);setActiveItem('integrated')}}
+    //     style={{display:' block',
+    // textAlign: 'left'}}
+    className={`lm-btn ${
+            activeItem === "integrated" ||
+            
+              (location.pathname === "/screen6" ||
+                location.pathname === "/screen7")
+              ? "active-bg "
+              : ""
+          }`}
+          onClick={() => {
+            setDisplay2(!display2);
+            setActiveItem("integrated");
+          }}
+          
         >
           Integrated Impact Analysis
           <ion-icon name="chevron-forward" id="icon"></ion-icon>
