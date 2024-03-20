@@ -67,8 +67,8 @@ const Screen4 = () => {
                </div> */}
                <div className="video-btn">
    
-        <div className="play-button" onClick={playVideo}>
-          <button>PLAY</button>
+        <div className="play-button" >
+          <button onClick={playVideo}>PLAY</button>
         </div>
     
       {isPlaying && (
