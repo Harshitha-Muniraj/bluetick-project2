@@ -261,10 +261,10 @@ table{
     font-size: 1rem;
     font-weight: 600;
   }
-  #id-myvideo{
+  #myVideo{
     position: absolute;
     top: 0;
-    width: 100%;
+    width: 358PX;
     height: 100%;
     left: 0;
     right: 0;
