@@ -7,6 +7,11 @@ import Footer from '../Footer/Footer'
 
 const Screen5 = () => {
   const [executionFinished, setExecutionFinished] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playVideo = () => {
+    setIsPlaying(true);
+  };
     const texts=`**log Performing Dynamic analysis 
     **log Building fastboot and adb
     **cli $ make fastboot adb
@@ -75,10 +80,23 @@ const Screen5 = () => {
                 <td  className='green s4'>No Issue</td>
                 </tr>
                </table>
-               <div className='video-btn'>
+               {/* <div className='video-btn'>
                
                 <button>Play Log Video</button>
-               </div>
+               </div> */}
+               <div className="video-btn">
+   
+        <div className="play-button" onClick={playVideo}>
+          <button>PLAY</button>
+        </div>
+    
+      {isPlaying && (
+        <video id="myVideo" controls autoPlay preload="metadata" width={200} height={200}>
+          <source src="./assets/dynamicanalysis.gif" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      )}
+    </div>
                </div>
             </> )}
                
