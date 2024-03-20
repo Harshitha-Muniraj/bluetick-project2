@@ -46,37 +46,87 @@ const PatchAnalysis = () => {
   **log OUT_DIR=out
   **log ============================================`;
 
+  useEffect(() => {
+    function splitAndPrintLog(logContent) {
+      const lines = logContent.split('\n');
+      let delay = 0; // Initialize delay counter
+  
+      lines.forEach((line, index) => {
+        setTimeout(() => {
+          if (line.includes('**cli')) {
+            setCli(prevCli => prevCli + line.replace('**cli', '') + '<br>');
+          } else if (line.includes('**log')) {
+            setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
+          } else if (line.includes('**wait')) {
+            setLog(prevLog => prevLog + '\n');
+            setCli(prevCli => prevCli + '\n');
+          }
+  
+          // Scroll to the bottom of logs after the last line is printed
+          if (index === lines.length - 1) {
+            setTimeout(() => {
+              setExecutionFinished(true);
+              logRef.current && logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+              cliRef.current && cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }, 200); // A small delay to ensure all new content is rendered before scrolling
+          }
+        }, delay);
+  
+        delay += 2000; // Increment delay for each line
+      });
+    }
+  
+    splitAndPrintLog(logContent);
+  }, []);
+  useEffect(() => {
+    const logContainer = logRef.current;
+    const cliContainer = cliRef.current;
+  
+    // Scroll to the bottom of log container
+    if (logContainer) {
+      logContainer.scrollTop = logContainer.scrollHeight;
+    }
+  
+    // Scroll to the bottom of cli container
+    if (cliContainer) {
+      cliContainer.scrollTop = cliContainer.scrollHeight;
+    }
+  }, [cli, log]);
 
+// useEffect(() => {
+//   function splitAndPrintLog(logContent) {
+//     const lines = logContent.split('\n');
 
+//     lines.forEach((line, index) => {
+//       setTimeout(() => {
+//         if (line.includes('**cli')) {
+//           setCli(prevCli => prevCli + line.replace('**cli', '') + '<br>');
+//           cliRef.current && cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+//         } else if (line.includes('**log')) {
+//           setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
+//           logRef.current && logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+//         } else if (line.includes('**wait')) {
+//           setLog(prevLog => prevLog + '\n');
+//           setCli(prevCli => prevCli + '\n');
+//         }
+//       }, index * 2000);
+//     });
 
+//     setTimeout(() => {
+//       setExecutionFinished(true);
+//     }, lines.length * 2000 + 3000);
+//   }
 
+//   splitAndPrintLog(logContent);
+// }, []);
 
-useEffect(() => {
-  function splitAndPrintLog(logContent) {
-    const lines = logContent.split('\n');
+// useEffect(() => {
+//   logRef.current && logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+// }, [log]);
 
-    lines.forEach((line, index) => {
-      setTimeout(() => {
-        if (line.includes('**cli')) {
-          setCli(prevCli => prevCli + line.replace('**cli', '') + '<br>');
-          cliRef.current && cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        } else if (line.includes('**log')) {
-          setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
-          logRef.current && logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        } else if (line.includes('**wait')) {
-          setLog(prevLog => prevLog + '\n');
-          setCli(prevCli => prevCli + '\n');
-        }
-      }, index * 2000);
-    });
-
-    setTimeout(() => {
-      setExecutionFinished(true);
-    }, lines.length * 2000 + 3000);
-  }
-
-  splitAndPrintLog(logContent);
-}, []);
+// useEffect(() => {
+//   cliRef.current && cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+// }, [cli]);
 return (
     <div className='right-menu'>
        <div className='right-top'>
@@ -127,18 +177,20 @@ return (
             <div className='exe-btm'>
                <table>
                <tr>
-               <td><p  className='error' >Boot Partition</p></td>
-                <td><p  className='error' >Application Partition</p></td>
+               <td className='err-div'><p  className='error' >Boot Partition <ion-icon name="download-outline"></ion-icon></p></td>
+                <td className='err-div'><p  className='error' >Application Partition <ion-icon name="download-outline"></ion-icon></p></td>
                </tr>
                 <tr>
-                <td>Kernel Partition</td>
-                </tr>
-                <tr>
-                <td>HAL Partition</td>
+                <td className='err-div'><p  className='error' >Kernel Partition <ion-icon name="download-outline"></ion-icon></p></td>
+                <td className='err-div'><p  className='error' >HAL Partition <ion-icon name="download-outline"></ion-icon></p></td>
                 </tr>
                 
+                
                </table>
+               <div className='video-btn'>
                
+                <button>Play Log Video</button>
+               </div>
             </div>
             </> )}
           </div>

@@ -255,3 +255,24 @@ table{
       transform: scale(1, 1);
     }
   } */
+
+  .result-table-green{
+    color: darkgreen;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  #id-myvideo{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 439px;
+  }
+  .video-btn{
+    DISPLAY: flex;
+    flex-direction: column;
+    position: relative;
+  }

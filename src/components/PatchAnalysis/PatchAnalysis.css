@@ -81,10 +81,14 @@
     flex: 1;
 }
 .green{
-    color: green;
+    background-color: lightgreen;
+    color: white;
 }
+
 .red{
-    color: red;
+    background-color:red;
+    color: white;
+
 }
 .s4{
     font-size: 1.1rem;
@@ -92,15 +96,17 @@
 .output{
     border-top: 1px solid;
     padding-top: 10px;
-    height: 40vh;
+    min-height: 40vh;
 }
 .exe-btm{
     display: flex;
     margin: 10px;
     /* padding: 10px;
     border: 1px solid #c9c0c0; */
-    width: 47%;
+    /* width: 47%; */
     gap: 40px;
+    justify-content: space-around;
+    margin: 40px 20px 40px 20px;
 }
 .exe-btm table{
     font-family: arial, sans-serif;
@@ -108,21 +114,46 @@
     width: 100%;
     font-size: 0.9rem;
     border: 1px solid grey;
+    flex: 1;
 }
 .exe-btm table td{
-    
+    /* text-align: center; */
     height: 50px;
     border: 1px solid grey;
+    font-size: 1.1rem;
+    width: 50%;
+    
 }
-
+.err-div{
+  
+    color: black;
+    /* text-align: center; */
+    justify-content: center;
+    border: none;
+}
 .error{
-    border: 2px solid red;
-    padding: 10px;
+    /* display: flex;
+    gap: 20px; */
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-around;
 }
 .anime{ 
     overflow: hidden;
 }
-
+.video-btn{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.video-btn button{
+    color: white;
+    background-color: blue;
+    padding: 8px;
+    border: none;
+    border-radius: 3px
+}
 
 @keyframes floatText{
   from {

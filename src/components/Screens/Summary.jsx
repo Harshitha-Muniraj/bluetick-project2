@@ -18,13 +18,13 @@ const Summary = () => {
                 <th>Integrity Impact Analysis</th>
             </tr>
             <tr >
-            <td>Static Analysis - Low Security Risk</td>
-            <td>Static Impact Analysis - Low Impact</td>
+            <td>Static Analysis - <span className='result-table-green'> Low Security Risk</span></td>
+            <td>Static Impact Analysis - <span className='result-table-green'>Low Impact</span></td>
             
             </tr>
             <tr >
-            <td>Dynamic Analysis -Low Security Risk</td>
-            <td>Dynamic Impact Analysis -Low Impact</td>
+            <td>Dynamic Analysis - <span className='result-table-green'>Low Security Risk</span></td>
+            <td>Dynamic Impact Analysis - <span className='result-table-green'>Low Impact</span></td>
             </tr>
          </table>
          <p className='sum-head'>Result</p>

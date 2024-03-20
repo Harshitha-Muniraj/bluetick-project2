@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import RightNav from '../RightTitle/RightNav'
 import RightTitle from '../RightTitle/RightTitle'
@@ -6,6 +6,7 @@ import RightExecution from '../RightTitle/RightExecution'
 import Footer from '../Footer/Footer'
 
 const Screen5 = () => {
+  const [executionFinished, setExecutionFinished] = useState(false);
     const texts=`**log Performing Dynamic analysis 
     **log Building fastboot and adb
     **cli $ make fastboot adb
@@ -49,8 +50,9 @@ const Screen5 = () => {
         <div className='patch-container'>
           <RightTitle/>
         <div className='execution-top'>
-        <RightExecution texts={texts}/>
-          {/* <div className='output'>
+        <RightExecution texts={texts} setExecutionFinished={setExecutionFinished}/>
+          <div className='output'>
+          {executionFinished && (<>
             <div>
               <p className='execution'>Output - Binary Partitions</p>
             </div>
@@ -73,10 +75,16 @@ const Screen5 = () => {
                 <td  className='green s4'>No Issue</td>
                 </tr>
                </table>
+               <div className='video-btn'>
+               
+                <button>Play Log Video</button>
+               </div>
+               </div>
+            </> )}
                
             </div>
           
-          </div> */}
+          
           </div>
           </div>
           

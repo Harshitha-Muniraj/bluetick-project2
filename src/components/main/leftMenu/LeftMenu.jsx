@@ -185,12 +185,12 @@ const LeftMenu = () => {
             <p>
               <NavLink to="/screen6"  isActive={(match, location) => match || location.pathname === '/screen6'}
           className='lm-btn'
-          activeClassName='active'>- Static Analysis</NavLink>
+          activeClassName='active'>- Impact Static Analysis</NavLink>
             </p>
             <p>
               <NavLink to="/screen7"  isActive={(match, location) => match || location.pathname === '/screen7'}
           className='lm-btn'
-          activeClassName='active'>- Dynamic Analysis</NavLink>
+          activeClassName='active'>-Impact Dynamic Analysis</NavLink>
             </p>
           </div>
         )}
@@ -210,3 +210,6 @@ const LeftMenu = () => {
 };
 
 export default LeftMenu;
+
+
+

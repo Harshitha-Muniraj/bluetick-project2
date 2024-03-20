@@ -6,25 +6,22 @@ import RightExecution from '../RightTitle/RightExecution'
 import Footer from '../Footer/Footer'
 
 const Screen7 = () => {
-    var text = "Dynamic Impact Analysis ,1. Scan for System calls,2.Inter Process Communication scan,3"
-  const delayText=text.split(".");
-  const [texts, setTexts] = useState([]);
+  const [executionFinished, setExecutionFinished] = useState(false);
+    var texts = `**log **********************************
+    **log Post Patch Dynamic Impact Analysis
+    **log **********************************
+    **log ***** Using Strace  to log system calls ****
+    **cli $ mmma -j6 external/strace
+    **cli $ adb shell strace -f -p  100342
+    **cli $ adb root
+    **cli $ adb shell setenforce 0
+    **cli $ adb shell start
+    **cli $ adb shell mkdir -m 777 /data/local/tmp/strace
+    **cli $ adb shell setprop wrap.com.android.calendar '"logwrapper strace -f -o /data/local/tmp/strace/strace.com.android.calendar.txt"'
+    **log Logs Captured
+    `
+  
 
-  useEffect(() => {
-    const timeoutIds = [];
-
-    delayText.forEach((text, i) => {
-      const timeoutId = setTimeout(() => {
-        setTexts((prev) => [...prev, text]);
-      }, 2000 * i);
-
-      timeoutIds.push(timeoutId);
-    });
-
-    return () => {
-      timeoutIds.forEach((id) => clearTimeout(id));
-    };
-  }, []);
   return (
     <div className='right-menu'>
        <RightNav title={'Integrated Impact Analysis-Dynamic Analysis'}/>
@@ -32,8 +29,9 @@ const Screen7 = () => {
         <div className='patch-container'>
           <RightTitle />
         <div className='execution-top'>
-        <RightExecution texts={texts}/>
-          {/* <div className='output'>
+        <RightExecution texts={texts} setExecutionFinished={setExecutionFinished}/>
+          <div className='output'>
+          {executionFinished && (<>
             <div>
               <p className='execution'>Output - Binary Partitions</p>
             </div>
@@ -53,12 +51,18 @@ const Screen7 = () => {
                 <td  className='green s4'>No Issue</td>
                 </tr>
                </table>
+               <div className='video-btn'>
+               
+                <button>Play Log Video</button>
+               </div>
+               </div>
+            </> )}
                
             </div>
           
-          </div> */}
           </div>
           </div>
+          
           
     </section>
   
