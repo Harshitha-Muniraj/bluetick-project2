@@ -66,18 +66,22 @@ useEffect(()=>{
                     <th>Reference</th>
                     <th>Severity</th>
                     <th>CWE</th>
+                    <th>CWE Description</th>
+                    <th>Known Affected Software Configurations</th>
                 </tr>
                 {data.map((item,index) => {
                   console.log(item)
                     return (
                         <tr key={index}>
-                        <td>{index}</td>
+                        <td>{item.sl}</td>
                             <td>{item.CVE}</td>
                             <td  ><p className='desc'>{item.Description}</p></td>
                             <td>{item.Date}</td>
                             <td><a href={item.References}>Link</a></td>
                             <td>{item.Severity}</td>
                             <td ><p className='desc'>{item.CWE}</p></td>
+                            <td ><p className='desc'>{item.CWEdescription}</p></td>
+                            <td>{item.kasc}</td>
                         </tr>
                     )
                 })}

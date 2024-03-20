@@ -46,91 +46,11 @@ const PatchAnalysis = () => {
   **log OUT_DIR=out
   **log ============================================`;
 
-//   useEffect(() => {
-//     function splitAndPrintLog(logContent) {
-//         // Split the log content into lines
-//         const lines = logContent.split('\n');
 
-//         lines.forEach((line, index) => {
-//             setTimeout(() => {
-//                 // Check if line contains **cli
-//                 if (line.includes('**cli')) {
-//                     setCli(prevCli => prevCli + line.replace('**cli', '') + '\n');
-//                 }
-//                 // Check if line contains **log
-//                 else if (line.includes('**log')) {
-//                     setLog(prevLog => prevLog + line.replace('**log', '') + '\n');
-//                 }
-//                 // Check if line contains **wait
-//                 else if (line.includes('**wait')) {
-//                     setLog(prevLog => prevLog + '\n');
-//                     setCli(prevCli => prevCli + '\n');
-//                 }
-//             }, index * 2000); // Delay printing by 2 seconds for each line
-//         });
-//     }
 
-//     splitAndPrintLog(logContent);
-// }, []);
 
-// useEffect(() => {
-//   function splitAndPrintLog(logContent) {
-//       const lines = logContent.split('\n');
-//       let logParagraph = '';
-//       let cliParagraph = '';
 
-//       lines.forEach((line, index) => {
-//           if (line.includes('**cli')) {
-//               setTimeout(() => {
-//                   setCli(prevCli => prevCli + line.replace('**cli', '') + '<br>');
-//               }, index * 2000);
-//           } else if (line.includes('**log')) {
-//               setTimeout(() => {
-//                   setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
-//               }, index * 2000);
-//           } else if (line.includes('**wait')) {
-//               setTimeout(() => {
-//                   setLog(prevLog => prevLog + '\n');
-//                   setCli(prevCli => prevCli + '\n');
-//               }, index * 2000 + 3000);
-//           }
-//       });
 
-//       // Set execution finished after the last line is processed
-//       setTimeout(() => {
-//           setExecutionFinished(true);
-//       }, lines.length * 2000 + 3000);
-//   }
-
-//   splitAndPrintLog(logContent);
-// }, []);
-
-// useEffect(() => {
-//   function splitAndPrintLog(logContent) {
-//     const lines = logContent.split('\n');
-
-//     lines.forEach((line, index) => {
-//       setTimeout(() => {
-//         if (line.includes('**cli')) {
-//           setCli(prevCli => prevCli + line.replace('**cli', '') + '<br>');
-//           cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-//         } else if (line.includes('**log')) {
-//           setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
-//           logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-//         } else if (line.includes('**wait')) {
-//           setLog(prevLog => prevLog + '\n');
-//           setCli(prevCli => prevCli + '\n');
-//         }
-//       }, index * 2000);
-//     });
-
-//     setTimeout(() => {
-//       setExecutionFinished(true);
-//     }, lines.length * 2000 + 3000);
-//   }
-
-//   splitAndPrintLog(logContent);
-// }, []);
 useEffect(() => {
   function splitAndPrintLog(logContent) {
     const lines = logContent.split('\n');

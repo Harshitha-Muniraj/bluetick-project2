@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./LeftMenu.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 const LeftMenu = () => {
   const [display1, setDisplay1] = useState(false);
   const [display2, setDisplay2] = useState(false);
   const [activeItem, setActiveItem] = useState("");
+  const location = useLocation();
 
   return (
     <div className="left-menu">
@@ -99,7 +100,7 @@ const LeftMenu = () => {
         >
          Android Platform Integrity <ion-icon name="chevron-forward" id='icon'></ion-icon>
         </NavLink>
-        <div
+        {/* <div
         style={{display:' block',
     textAlign: 'left'}}
           className={` ${activeItem === "Patch Security Analysis" ? "active-bg " : ""} lm-btn`}
@@ -122,7 +123,54 @@ const LeftMenu = () => {
             </p>
           </div>
         )}
-        
+         */}
+         <div
+          className={`lm-btn ${
+            activeItem === "Patch Security Analysis" ||
+            
+              (location.pathname === "/screen4" ||
+                location.pathname === "/screen5")
+              ? "active-bg "
+              : ""
+          }`}
+          onClick={() => {
+            setDisplay1(!display1);
+            setActiveItem("Patch Security Analysis");
+          }}
+        >
+          Patch Security Analysis{" "}
+          <ion-icon name="chevron-forward" id="icon"></ion-icon>
+        </div>
+        {/* Subsection */}
+        {display1 && (
+          <div className="subsection">
+            <p>
+              <NavLink
+                to="/screen4"
+                isActive={(match, location) =>
+                  match || location.pathname === "/screen4"
+                }
+                className={`lm-btn 
+          }`}
+                activeClassName="active"
+              >
+                - Static Analysis
+              </NavLink>
+            </p>
+            <p>
+              <NavLink
+                to="/screen5"
+                isActive={(match, location) =>
+                  match || location.pathname === "/screen5"
+                }
+                className={`lm-btn 
+          }`}
+                activeClassName="active"
+              >
+                - Dynamic Analysis
+              </NavLink>
+            </p>
+          </div>)}
         <div
         style={{display:' block',
     textAlign: 'left'}}

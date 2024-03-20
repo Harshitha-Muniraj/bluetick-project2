@@ -39,17 +39,14 @@
     background-color:green; 
 }
 .active-bg{
-    background-color:#c0c2c087;
+    background-color:green;
 color:white}
 .subsection{
     /* margin-top: -14px; */
     flex-direction: column;
     gap: 10px;
     text-align: left;
-    padding-left: 5rem;
-    /* background: #006dff38; */
-    padding: 10px;
-    padding-left: 3.2rem !important;
+    
 }
 #icon{
     padding-top: 5px;
