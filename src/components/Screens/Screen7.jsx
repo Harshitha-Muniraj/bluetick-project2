@@ -33,7 +33,7 @@ const Screen7 = () => {
           <div className='output'>
           {executionFinished && (<>
             <div>
-              <p className='execution'>Output - Binary Partitions</p>
+              <p className='execution justify'>Output - Binary Partitions</p>
             </div>
             <div className='exe-btm'>
                <table >

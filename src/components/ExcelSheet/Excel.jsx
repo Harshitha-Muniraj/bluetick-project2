@@ -54,7 +54,11 @@ useEffect(()=>{
     <div className='table-box'>
         <div className='btn-section'>
             <button onClick={()=>setModalIsOpen(true)} className='cursor'>Add New Patch</button>
-            <button className='cursor' >Export To Excel</button>
+            <div className='ryt2-btns'>
+              <button className='cursor'>Retrain Model</button>
+              <button className='cursor' >Export To Excel</button>
+            </div>
+            
         </div>
         <div className='field'>
         <table>

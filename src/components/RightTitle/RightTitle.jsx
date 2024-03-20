@@ -8,7 +8,7 @@ const RightTitle = () => {
           </div>
           <div className='pt-container'>
           <p>Patch Name</p>
-            <p>Sample Test Patch 1</p>
+            <p> Test Patch 1</p>
           </div>
           </div>
   )

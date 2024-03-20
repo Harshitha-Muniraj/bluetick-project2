@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './PatchAnalysis.css'
 import Footer from '../Footer/Footer';
+import RightExecution from '../RightTitle/RightExecution';
 const PatchAnalysis = () => {
  
-  const [log, setLog] = useState("");
-  const [cli,setCli]=useState("");
 
   const [executionFinished, setExecutionFinished] = useState(false);
-  const logRef = useRef(null);
-  const cliRef = useRef(null);
+ 
 
-  var logContent = `**log Building Kernel Binary (image)
+  var texts = `**log Building Kernel Binary (image)
+  **wait 2 
   **log Download Android kernel source code
   **cli $ mkdir android-kernel && cd android-kernel
   **cli $ repo init -u https://android.googlesource.com/kernel/manifest
@@ -46,87 +45,8 @@ const PatchAnalysis = () => {
   **log OUT_DIR=out
   **log ============================================`;
 
-  useEffect(() => {
-    function splitAndPrintLog(logContent) {
-      const lines = logContent.split('\n');
-      let delay = 0; // Initialize delay counter
-  
-      lines.forEach((line, index) => {
-        setTimeout(() => {
-          if (line.includes('**cli')) {
-            setCli(prevCli => prevCli + line.replace('**cli', '') + '<br>');
-          } else if (line.includes('**log')) {
-            setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
-          } else if (line.includes('**wait')) {
-            setLog(prevLog => prevLog + '\n');
-            setCli(prevCli => prevCli + '\n');
-          }
-  
-          // Scroll to the bottom of logs after the last line is printed
-          if (index === lines.length - 1) {
-            setTimeout(() => {
-              setExecutionFinished(true);
-              logRef.current && logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-              cliRef.current && cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-            }, 200); // A small delay to ensure all new content is rendered before scrolling
-          }
-        }, delay);
-  
-        delay += 2000; // Increment delay for each line
-      });
-    }
-  
-    splitAndPrintLog(logContent);
-  }, []);
-  useEffect(() => {
-    const logContainer = logRef.current;
-    const cliContainer = cliRef.current;
-  
-    // Scroll to the bottom of log container
-    if (logContainer) {
-      logContainer.scrollTop = logContainer.scrollHeight;
-    }
-  
-    // Scroll to the bottom of cli container
-    if (cliContainer) {
-      cliContainer.scrollTop = cliContainer.scrollHeight;
-    }
-  }, [cli, log]);
 
-// useEffect(() => {
-//   function splitAndPrintLog(logContent) {
-//     const lines = logContent.split('\n');
 
-//     lines.forEach((line, index) => {
-//       setTimeout(() => {
-//         if (line.includes('**cli')) {
-//           setCli(prevCli => prevCli + line.replace('**cli', '') + '<br>');
-//           cliRef.current && cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-//         } else if (line.includes('**log')) {
-//           setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
-//           logRef.current && logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-//         } else if (line.includes('**wait')) {
-//           setLog(prevLog => prevLog + '\n');
-//           setCli(prevCli => prevCli + '\n');
-//         }
-//       }, index * 2000);
-//     });
-
-//     setTimeout(() => {
-//       setExecutionFinished(true);
-//     }, lines.length * 2000 + 3000);
-//   }
-
-//   splitAndPrintLog(logContent);
-// }, []);
-
-// useEffect(() => {
-//   logRef.current && logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-// }, [log]);
-
-// useEffect(() => {
-//   cliRef.current && cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-// }, [cli]);
 return (
     <div className='right-menu'>
        <div className='right-top'>
@@ -144,31 +64,30 @@ return (
           <div className='patch-top'>
           <div className='pt-container'>
             <p>Patch Name</p>
-            <p>Sample Test Patch 1</p>
+            <p> Test Patch 1</p>
           </div>
           <div></div>
           </div>
           <div className='execution-top'>
-          <div   style={{    marginBottom: '20px'}} >
+          <RightExecution texts={texts} setExecutionFinished={setExecutionFinished}/>
+          {/* <div   style={{    marginBottom: '20px'}} >
             <div className='execution'>
             <p>Execution Logs</p>
-            <p></p>
+           
             <p>Command Line Interference</p>
             </div>
             <div className='cmd-box'>
-            {/* <div className='line-delay' > */}
+           
             <div className='line-delay' dangerouslySetInnerHTML={{ __html: log }} ref={logRef}></div>
-          {/* {log} */}
-              {/* </div> */}
+          
               <div className='line-delay-cli' dangerouslySetInnerHTML={{ __html: cli }} ref={cliRef}>
 
-              {/* {cli} */}
               </div>
             </div>
             
             
 
-          </div>
+          </div> */}
           <div className='output'>
           {executionFinished && (<>
             <div>

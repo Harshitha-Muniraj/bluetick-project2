@@ -59,35 +59,35 @@ const Screen5 = () => {
           <div className='output'>
           {executionFinished && (<>
             <div>
-              <p className='execution'>Output - Binary Partitions</p>
+              <p className='execution justify'>Output - Binary Partitions</p>
             </div>
             <div className='exe-btm'>
-               <table >
-               <tr>
-               <td >System Behavior - opening file system,applications</td>
-                <td className='green s4'>No Issue</td>
-               </tr>
-                <tr>
-                <td >CPU Benchmarking</td>
-                <td  className='red s4'>Moderately High</td>
-                </tr>
-                <tr>
-                <td >Memory Profiling</td>
-                <td  className='green s4'>No Issue</td>
-                </tr>
-                <tr>
-                <td >Disk Usage</td>
-                <td  className='green s4'>No Issue</td>
-                </tr>
-               </table>
-               {/* <div className='video-btn'>
-               
-                <button>Play Log Video</button>
-               </div> */}
+            <table>
+    <tr>
+        <th>System Behavior</th>
+        <th>Assessment</th>
+    </tr>
+    <tr>
+        <td>Opening file system, applications</td>
+        <td class='green s4'>No Issue</td>
+    </tr>
+    <tr>
+        <td>CPU Benchmarking</td>
+        <td class='green s4'>Moderately High</td>
+    </tr>
+    <tr>
+        <td>Memory Profiling</td>
+        <td class='green s4'>No Issue</td>
+    </tr>
+    <tr>
+        <td>Disk Usage</td>
+        <td class='green s4'>No Issue</td>
+    </tr>
+</table>
                <div className="video-btn">
    
         <div className="play-button" onClick={playVideo}>
-          <button>PLAY</button>
+          <button>Execution Video</button>
         </div>
     
       {isPlaying && (

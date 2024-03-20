@@ -10,7 +10,7 @@ const RightExecution = ({texts,setExecutionFinished}) => {
   useEffect(() => {
     function splitAndPrintLog(logContent) {
       const lines = logContent.split('\n');
-      let delay = 0; 
+      let delay = 0;
   
       lines.forEach((line, index) => {
         setTimeout(() => {
@@ -19,16 +19,22 @@ const RightExecution = ({texts,setExecutionFinished}) => {
           } else if (line.includes('**log')) {
             setLog(prevLog => prevLog + line.replace('**log', '') + '<br>');
           } else if (line.includes('**wait')) {
-            setLog(prevLog => prevLog + '\n');
-            setCli(prevCli => prevCli + '\n');
+            setLog(prevLog => prevLog + '<div class="loader"></div>');
+          
+          setTimeout(() => {
+           
+            setLog(prevLog => prevLog.replace('<div class="loader"></div>', ''));
+          }, 2000);
+          
           }
   
+       
           if (index === lines.length - 1) {
             setTimeout(() => {
               setExecutionFinished(true);
               logRef.current && logRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
               cliRef.current && cliRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-            }, 200); // A small delay to ensure all new content is rendered before scrolling
+            }, 200); 
           }
         }, delay);
   
@@ -41,7 +47,7 @@ const RightExecution = ({texts,setExecutionFinished}) => {
   useEffect(() => {
     const logContainer = logRef.current;
     const cliContainer = cliRef.current;
-  
+
     if (logContainer) {
       logContainer.scrollTop = logContainer.scrollHeight;
     }
@@ -51,51 +57,29 @@ const RightExecution = ({texts,setExecutionFinished}) => {
     }
   }, [cli, log]);
 
+
+
   return (
     <div className='execution-top'>
           <div   style={{    marginBottom: '20px'}} >
             <div className='execution'>
             <p>Execution Logs</p>
-            <p></p>
+           
             <p>Command Line Interference</p>
             </div>
             <div className='cmd-box'>
-             {/* <div className='line-delay' > */}
+     
              <div className='line-delay' dangerouslySetInnerHTML={{ __html: log }} ref={logRef}></div>
-          {/* {log} */}
-              {/* </div> */}
+      
               <div className='line-delay-cli' dangerouslySetInnerHTML={{ __html: cli }} ref={cliRef}>
 
-              {/* {cli} */}
               </div>
             </div>
             
             
 
           </div>
-          {/* <div className='output'>
-          {executionFinished && (<>
-            <div>
-              <p className='execution'>Output - Binary Partitions</p>
-            </div>
-            <div className='exe-btm'>
-               <table>
-               <tr>
-               <td><p  className='error' >Boot Partition</p></td>
-                <td><p  className='error' >Application Partition</p></td>
-               </tr>
-                <tr>
-                <td>Kernel Partition</td>
-                </tr>
-                <tr>
-                <td>HAL Partition</td>
-                </tr>
-                
-               </table>
-               
-            </div>
-            </> )}
-          </div> */}
+     
           </div>
   )
 }

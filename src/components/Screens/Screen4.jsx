@@ -22,7 +22,16 @@ const Screen4 = () => {
     **logs Starting Scan
     **wait 2
     **log scan complete`
-  
+  const tableData=[
+    'Architecture, Design and Threat Modeling Requirements',
+'Data Storage and Privacy Requirements',
+'Cryptography Requirements',
+'Authentication and Session Management Requirements',
+'Network Communication Requirements',
+'Environmental Interaction Requirements',
+'Code Quality and Build Setting Requirements',
+'Resiliency & Reverse Engineering Requirements' 
+  ]
     
   return (
     <div className='right-menu'>
@@ -35,40 +44,42 @@ const Screen4 = () => {
           <div className='output'>
           {executionFinished && (<>
             <div>
-              <p className='execution'>Output - Binary Partitions</p>
+              <p className='execution justify'>Output - Binary Partitions</p>
             </div>
             <div className='exe-btm'>
+            <div className='tablescroll'>
                <table >
-               <tr>
-               <td >Scan for OWASP top 10</td>
-                <td className='green s4'>No Issue</td>
-               </tr>
+               <tr className='separate-head'>Scan for OWASP </tr>
+               {
+                tableData.map((item,index)=>{
+                  return(
+                    <tr key={index}>
+                <td >{item}</td>
+                <td  className='green s4'>No Issue</td>
+                </tr>
+                  )
+                })
+               }
+               
                 <tr>
                 <td >Scan for CWE</td>
                 <td  className='green s4'>No Issue</td>
                 </tr>
                 <tr>
                 <td >Compilance with Coding Standards</td>
-                <td  className='red s4'>3 Issues</td>
+                <td  className='green s4'>3 Issues</td>
                 </tr>
                 <tr>
                 <td >Scan for hardcoded Sensitive Information </td>
                 <td  className='green s4'>No Issue</td>
                 </tr>
                </table>
-               {/* <div className='video-btn'>
-               
-                <button>Play Log Video</button>
-                
-                  <video width="320" height="240" controls src='./assets/static analysis.mp4'>
-                    
-                  </video>
-                
-               </div> */}
+               </div>
+              
                <div className="video-btn">
    
         <div className="play-button" >
-          <button onClick={playVideo}>PLAY</button>
+          <button onClick={playVideo}>Execution Log Video</button>
         </div>
     
       {isPlaying && (

@@ -27,7 +27,7 @@
 }
 .pt-container{
     background-color: #dadae3;
-    width: 26%;
+    width: 20%;
     border-radius: 5px;
     padding: 10px;
     display: flex;
@@ -36,13 +36,13 @@
 .line-delay-cli {
     background-color: black;
     color: white;
-    padding: 10px;
+    padding: 17px;
     font-family: 'Courier New', monospace;
     border: 1px solid #CCCCCC;
     border-radius: 5px;
     overflow: auto;
     height: 30vh; 
-    white-space: pre-wrap; 
+    white-space: normal; 
     width: 40%;
     flex: 1;
     margin: 20px 0;
@@ -61,12 +61,16 @@
 .execution{
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-around;
+   
     font-size: 1.2rem;
     font-weight: 600;
     padding-bottom: 10px;
     border-bottom: 1px dashed grey;
     
+}
+.execution p{
+    flex:1;
+    text-align: center;
 }
 .line-delay{
     background-color: #e5e9ef;
@@ -81,8 +85,8 @@
     flex: 1;
 }
 .green{
-    background-color: lightgreen;
-    color: white;
+    color: green;
+    
 }
 
 .red{
@@ -108,6 +112,13 @@
     justify-content: space-around;
     margin: 40px 20px 40px 20px;
 }
+.separate-head{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    padding-left: 10px;
+}
 .exe-btm table{
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -116,6 +127,7 @@
     border: 1px solid grey;
     flex: 1;
 }
+
 .exe-btm table td{
     /* text-align: center; */
     height: 50px;
@@ -155,6 +167,7 @@
     background-color: blue;
     padding: 8px;
     border: none;
+    font-weight: 600;
     border-radius: 3px
 }
 
@@ -168,3 +181,81 @@
     bottom: 40%;
   }
 }
+
+.tablescroll{
+    
+    height: 35vh;
+    overflow-y: scroll;
+    position: sticky;
+    top: 50px;
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background-color: #f1f1f1;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(154, 152, 152);
+}
+
+.exe-btm table {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.exe-btm th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.exe-btm th {
+    background-color: #f2f2f2;
+}
+
+.exe-btm tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.exe-btm tr:hover {
+    background-color: #ddd;
+}
+.justify{
+    justify-content: center;
+}
+.green {
+    color: green;
+}
+
+.s4 {
+    font-size: 14px; /* Adjust font size as needed */
+}
+
+.exe-btm table th {
+    background-color: lightgreen;
+    padding: 12px;
+    
+}
+
+.loader {
+    border: 3px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 3px solid #3498db;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

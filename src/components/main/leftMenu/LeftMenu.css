@@ -38,8 +38,16 @@
 .lm-btn .active{
     background-color:green; 
 }
+.col-drop{
+    background-color:#008500bf;
+}
+.subsection p a{
+    padding: 8px !important;
+    padding-left: 3rem !important;
+    color: white;
+}
 .active-bg{
-    background-color:green;
+    background-color:#008500bf;
 color:white}
 .subsection{
     /* margin-top: -14px; */
