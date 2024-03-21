@@ -9,14 +9,17 @@ const PatchAnalysis = () => {
  
 
   var texts = `**log Building Kernel Binary (image)
-  **wait 2 
+  **wait
+  **loader
   **log Download Android kernel source code
   **cli $ mkdir android-kernel && cd android-kernel
   **cli $ repo init -u https://android.googlesource.com/kernel/manifest
   **cli $ repo sync
+  **loader 
   **log 
   **cli $ tools/bazel build //common-modules/virtual-device:virtual_device_x86_64_dist
   **log Installing bazel
+  **loader 
   **log Setting up path with bazel
   **cli $ source build/envsetup.sh
   **log **** Bulding Kernel image Image.lz4-dtb ***
