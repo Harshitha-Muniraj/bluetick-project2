@@ -143,7 +143,7 @@
 // export default RightExecution;
 
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const RightExecution = ({ texts, setExecutionFinished }) => {
   const [log, setLog] = useState("");
@@ -151,6 +151,8 @@ const RightExecution = ({ texts, setExecutionFinished }) => {
   const [waiting,setWaiting]=useState(false)
   const [isLoading, setIsLoading] = useState(false);
   const [loaderEncountered, setLoaderEncountered] = useState(false);
+  const logRef = useRef(null);
+  const cliRef = useRef(null);
 
   useEffect(() => {
     function  splitAndPrintLog(logContent) {
@@ -216,6 +218,18 @@ delay+=2000
     splitAndPrintLog(texts);
   }, []);
 
+    useEffect(() => {
+    const logContainer = logRef.current;
+    const cliContainer = cliRef.current;
+
+    if (logContainer) {
+      logContainer.scrollTop = logContainer.scrollHeight;
+    }
+
+    if (cliContainer) {
+      cliContainer.scrollTop = cliContainer.scrollHeight;
+    }
+  }, [cli, log]);
   return (
     <div className='execution-top'>
       <div style={{ marginBottom: '20px' }}>
@@ -224,8 +238,8 @@ delay+=2000
           <p>Command Line Interference</p>
         </div>
         <div className='cmd-box'>
-          <div className='line-delay' dangerouslySetInnerHTML={{ __html: log }}></div>
-          <div className='line-delay-cli' dangerouslySetInnerHTML={{ __html : cli }}></div>
+          <div className='line-delay' ref={logRef} dangerouslySetInnerHTML={{ __html: log }}></div>
+          <div className='line-delay-cli' ref={cliRef} dangerouslySetInnerHTML={{ __html : cli }}></div>
         </div>
       </div>
     </div>
